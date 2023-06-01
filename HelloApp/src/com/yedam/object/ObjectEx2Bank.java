@@ -8,7 +8,7 @@ public class ObjectEx2Bank {
 		Bank bank = new Bank();
 		Bank[] accounts = new Bank[3];
 		Scanner scr = new Scanner(System.in);
-
+		int total;
 		boolean run = true;
 
 		while (run) {
@@ -28,6 +28,7 @@ public class ObjectEx2Bank {
 						break;
 					} else {
 						i--;
+						System.out.println("중복되는 계좌번호 입니다.");
 						continue;
 					}
 				}
@@ -50,22 +51,33 @@ public class ObjectEx2Bank {
 						if (accounts[i].accountNo.equals(check)) {
 							System.out.println("입금액을 입력해주세요.");
 							int deposit = Integer.parseInt(scr.nextLine());
-							int sum = accounts[i].balance + deposit;
-							System.out.printf("입금액은 %d이며 현재 잔액은 %d입니다. \n", deposit , sum);
+							accounts[i].balance = accounts[i].balance + deposit;
+							System.out.printf("입금액은 %d이며 현재 잔액은 %d입니다. \n", deposit, accounts[i].balance);
 						}
 					}
 				}
-				
+
 			} else if (num == 4) { // 출금
+				int deposit;
 				System.out.println("출금할 계좌를 입력해주세요..");
 				String check = scr.nextLine();
 				for (int i = 0; i < accounts.length; i++) {
 					if (accounts[i] != null) {
 						if (accounts[i].accountNo.equals(check)) {
 							System.out.println("출금액을 입력해주세요.");
-							int deposit = Integer.parseInt(scr.nextLine());
-							int sum = accounts[i].balance - deposit;
-							System.out.printf("출금액은 %d이며 현재 잔액은 %d입니다. \n", deposit , sum);
+							deposit = Integer.parseInt(scr.nextLine());
+							accounts[i].balance = accounts[i].balance - deposit;
+							if (accounts[i].balance > 0) {
+								System.out.printf("출금액은 %d이며 현재 잔액은 %d입니다. \n", deposit, accounts[i].balance);
+							} else {
+								System.out.println("출금 잔액 부족합니다.");
+							}
+						}
+
+					}
+
+				}
+
 			} else if (num == 5) { // 종료.
 				System.out.println("시스템을 종료합니다.");
 				break;
@@ -75,4 +87,3 @@ public class ObjectEx2Bank {
 
 	}
 }
-			
