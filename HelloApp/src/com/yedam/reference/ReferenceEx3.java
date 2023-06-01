@@ -8,6 +8,7 @@ public class ReferenceEx3 {
 		double[] arrStu = { 89.5, 78.9, 90.4 };
 		arrStu = new double[] {55.5, 66.6,88.8 ,77.7 };
 		double maxVal = 0;
+		double Val = 0;
 		double sum = 0;
 		int cnt =0;
 		for (double num : arrStu) {
@@ -26,6 +27,7 @@ public class ReferenceEx3 {
 		double avg = sum/cnt;
 		System.out.println("평균값은 : " + avg);
 		System.out.printf("합계점수는 %.2f, 평균은 %.2f, 최고값은 %.2f 입니다.", sum,avg, maxVal);
+		
 	}
 
 }
