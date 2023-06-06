@@ -29,7 +29,9 @@ public class ControlEx4 {
 	public static int getFirstDate(int month) {
 		int result = 0;
 		switch(month) {
-		case 4: result = 6; break;
+		case 4: 
+			result = 6; 
+		break;
 		case 5: result = 1; break;
 		case 6: result = 4; break;
 		default: result = 0; break;
